@@ -1,6 +1,8 @@
-public class Pet {
+import java.io.Serializable;
 
-    String name;
+public class Pet{
+
+    private final String name;
 
     public Pet(final String name) {
         this.name = name;

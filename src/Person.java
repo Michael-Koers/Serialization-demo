@@ -1,30 +1,39 @@
-import java.io.IOException;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Person implements Serializable {
+public class Person {
     private final String name;
     private final LocalDate dateOfBirth;
-    private final String gender;
-    private final transient String socialSecurityNumber;
-//    private final Pet pet;
+    private final Gender gender;
 
-    public Person(final String name, final LocalDate dateOfBirth, final String gender, final String socialSecurityNumber) {
-        System.out.println("Created person!");
+//    @Serial
+//    private static final long serialVersionUID = 1L;
+
+    public Person(final String name, final LocalDate dateOfBirth, final Gender gender) {
+        System.out.println("Hello World from constructor person!");
+
+//        if (Gender.ALIEN.equals(gender)) {
+//            throw new IllegalArgumentException("Alien no longer supported");
+//        }
 
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-        this.socialSecurityNumber = socialSecurityNumber;
-//        this.pet = new Pet("Betsy");
     }
 
+//
 
-    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException {
-        System.out.println("Reading person!");
-        in.defaultReadObject();
+    public enum Gender {
+        MALE,
+        FEMALE,
+        UNSPECIFIED,
+        ALIEN
     }
 
+//    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException {
+//        System.out.println("Reading person!");
+//        in.defaultReadObject();
+//    }
 
 }
